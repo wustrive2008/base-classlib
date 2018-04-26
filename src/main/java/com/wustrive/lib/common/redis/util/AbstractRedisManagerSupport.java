@@ -1,7 +1,7 @@
 package com.wustrive.lib.common.redis.util;
 
-import org.wustrive.java.redis.HessianSerializer;
-import org.wustrive.java.redis.support.RedisCacheSupport;
+import com.wustrive.lib.common.redis.HessianSerializer;
+import com.wustrive.lib.common.redis.support.RedisCacheSupport;
 import redis.clients.jedis.Jedis;
 
 import java.io.IOException;

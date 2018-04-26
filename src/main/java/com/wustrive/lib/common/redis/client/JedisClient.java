@@ -1,6 +1,6 @@
 package com.wustrive.lib.common.redis.client;
 
-import org.wustrive.java.redis.pool.RedisPools;
+import com.wustrive.lib.common.redis.pool.RedisPools;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 

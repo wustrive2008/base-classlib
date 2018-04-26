@@ -4,11 +4,11 @@ package com.wustrive.lib.common.secret;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
+import com.wustrive.lib.common.properties.PropertiesConfig;
+import com.wustrive.lib.core.exception.BusinessException;
+import com.wustrive.lib.util.DateUtil;
+import com.wustrive.lib.util.StringUtil;
 import net.minidev.json.JSONObject;
-import org.wustrive.java.common.properties.PropertiesConfig;
-import org.wustrive.java.common.util.DateUtil;
-import org.wustrive.java.common.util.StringUtil;
-import org.wustrive.java.core.exception.BusinessException;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -136,7 +136,7 @@ public class JWTUtil {
     /**
      * 重置jwt 过期时间返回新的 jwt encrypt
      *
-     * @param jwsObject
+     * @param jwtTemplate
      * @return
      */
     public synchronized static String reExp(String jwtTemplate) throws BusinessException, KeyLengthException {

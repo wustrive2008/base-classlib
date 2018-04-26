@@ -1,10 +1,10 @@
 package com.wustrive.lib.dao.jdbc.dao;
 
+import com.wustrive.lib.dao.jdbc.BaseCommond;
+import com.wustrive.lib.dao.jdbc.bean.BaseBean;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.wustrive.java.dao.jdbc.BaseCommond;
-import org.wustrive.java.dao.jdbc.bean.BaseBean;
 
 import java.util.HashMap;
 import java.util.List;

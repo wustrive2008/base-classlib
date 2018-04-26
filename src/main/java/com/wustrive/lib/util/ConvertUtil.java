@@ -16,7 +16,6 @@ import java.sql.Timestamp;
 import java.util.*;
 
 /**
- *
  * Description: 对象转换工具
  *
  * @author: wubaoguo
@@ -178,7 +177,7 @@ public class ConvertUtil {
                 Method method = class1.getMethod(
                         "get" + Character.toUpperCase(fieldName.charAt(0))
                                 + fieldName.substring(1), model.getClass());
-                fieldValue = method.invoke(class1, null);
+                fieldValue = method.invoke(class1, new Object());
             } catch (Exception e) {
                 try {
                     if (!Modifier.isPublic(field.getModifiers())) {
@@ -214,7 +213,7 @@ public class ConvertUtil {
             Method method = localClass.getMethod(
                     "get" + Character.toUpperCase(fieldName.charAt(0))
                             + fieldName.substring(1), localClass);
-            fieldValue = method.invoke(localClass, null);
+            fieldValue = method.invoke(localClass, new Object());
         } catch (Exception e) {
             try {
                 if (!Modifier.isPublic(field.getModifiers())) {
@@ -279,7 +278,7 @@ public class ConvertUtil {
         try {
             beanInfo = Introspector.getBeanInfo(delegateBean.getClass());
         } catch (IntrospectionException e) {
-            // TODO 异常暂不处理
+            e.printStackTrace();
         }
         PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
         for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
@@ -291,9 +290,9 @@ public class ConvertUtil {
                     // 去掉方法名称 get 保留属性字段名称
                     methodName = methodName.substring(3, methodName.length());
                     String fieldName = Character.toLowerCase(methodName.charAt(0)) + methodName.substring(1);
-                    resultMap.put(fieldName, method.invoke(delegateBean, null));
+                    resultMap.put(fieldName, method.invoke(delegateBean, new Object()));
                 } catch (Exception e) {
-                    // TODO 异常暂不处理
+                    e.printStackTrace();
                 }
             }
         }

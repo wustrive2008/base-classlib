@@ -2,7 +2,7 @@ package com.wustrive.lib.common.oss;
 
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.*;
-import org.wustrive.java.common.properties.PropertiesConfig;
+import com.wustrive.lib.common.properties.PropertiesConfig;
 
 import java.io.File;
 import java.io.FileInputStream;

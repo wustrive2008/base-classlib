@@ -1,8 +1,8 @@
 package com.wustrive.lib.dao.jdbc.bean;
 
+import com.wustrive.lib.dao.jdbc.dao.BaseDao;
+import com.wustrive.lib.dao.jdbc.dao.SpringContextHolder;
 import org.springframework.jdbc.core.RowMapper;
-import org.wustrive.java.dao.jdbc.dao.BaseDao;
-import org.wustrive.java.dao.jdbc.dao.SpringContextHolder;
 
 import java.io.Serializable;
 import java.util.Map;

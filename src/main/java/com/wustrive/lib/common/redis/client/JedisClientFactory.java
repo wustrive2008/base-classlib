@@ -2,7 +2,6 @@ package com.wustrive.lib.common.redis.client;
 
 /**
  * 
- * @Description: TODO
  * @author wubaoguo
  * @mail: wustrive2008@gmail.com
  * @date: 2017年3月11日 下午4:11:14

@@ -1,12 +1,12 @@
 package com.wustrive.lib.dao.jdbc.dao;
 
+import com.wustrive.lib.util.FileUtil;
 import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import org.wustrive.java.common.util.FileUtil;
 
 @Component
 public class SpringContextHolder implements ApplicationContextAware, DisposableBean {

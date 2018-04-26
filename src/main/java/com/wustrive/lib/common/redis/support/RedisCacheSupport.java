@@ -1,12 +1,12 @@
 package com.wustrive.lib.common.redis.support;
 
+import com.wustrive.lib.common.redis.HessianSerializer;
+import com.wustrive.lib.common.redis.client.JedisClient;
+import com.wustrive.lib.common.redis.client.JedisClientFactory;
+import com.wustrive.lib.common.redis.pool.RedisPools;
 import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
 import org.apache.commons.lang3.StringUtils;
-import org.wustrive.java.redis.HessianSerializer;
-import org.wustrive.java.redis.client.JedisClient;
-import org.wustrive.java.redis.client.JedisClientFactory;
-import org.wustrive.java.redis.pool.RedisPools;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.exceptions.JedisException;
@@ -18,7 +18,6 @@ import java.util.Set;
 
 /**
  * 
- * @Description: TODO
  * @author wubaoguo
  * @mail: wustrive2008@gmail.com
  * @date: 2017年3月11日 下午4:14:55
