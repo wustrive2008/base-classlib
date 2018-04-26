@@ -162,7 +162,7 @@ public class ThreadContentFilter implements Filter {
     /**
      * 设置新的共享对象
      *
-     * @param tHREAD_OBJECT
+     * @param threadObject
      */
     public static void setThreadObject(ThreadObject threadObject) {
         THREAD_OBJECT.set(threadObject);
