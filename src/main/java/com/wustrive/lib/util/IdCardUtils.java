@@ -1,5 +1,7 @@
 package com.wustrive.lib.util;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -434,7 +436,7 @@ public class IdCardUtils {
      */
 
     private static Hashtable<String, String> GetAreaCode() {
-        Hashtable<String, String> hashtable = new Hashtable<String, String>();
+        Hashtable<String, String> hashtable = new Hashtable<>();
         hashtable.put("11", "北京");
         hashtable.put("12", "天津");
         hashtable.put("13", "河北");
@@ -487,5 +489,21 @@ public class IdCardUtils {
         } else {
             return false;
         }
+    }
+
+    /**
+     * 身份证最后一位x转为大写X  如果存在
+     *
+     * @param idCard
+     */
+    public static String toUpperCase(String idCard) {
+        if (StringUtils.isEmpty(idCard)) {
+            return "";
+        }
+        String endChar = idCard.substring(idCard.length() - 1, idCard.length());
+        if ("x".equals(endChar)) {
+            return idCard.substring(0, idCard.length() - 1) + "X";
+        }
+        return idCard;
     }
 }

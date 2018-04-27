@@ -1,9 +1,14 @@
 package com.wustrive.lib.util;
 
+import com.wustrive.lib.common.properties.PropertiesConfig;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -77,5 +82,48 @@ public class WebUtil {
         response.setContentType("application/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
         return response.getWriter();
+    }
+
+    /**
+     * 补全API地址
+     * @param uri
+     * @return
+     */
+    public static String localApiUrl(String uri) {
+        if(StringUtil.isBlank(uri)) {
+            return "";
+        }
+        if(uri.startsWith("http://") || uri.startsWith("https://")) {
+            return uri;
+        }
+        String portStr = PropertiesConfig.getProperty("host.alias.port");
+        int port = Integer.parseInt(null == portStr ? "80" : portStr);
+        String host_alias_share = PropertiesConfig.getProperty("host.alias.api");
+        String serverUrl = host_alias_share + (port != 80 ? ":" + port : "") + PropertiesConfig.getProperty("app.context.path");
+        return "http://" +serverUrl + "/" + uri;
+    }
+
+
+    /**
+     * 获取所有请求参数
+     * @param request
+     * @return
+     */
+    public static Map<String, String> getAllRequestParam(final HttpServletRequest request) {
+        Map<String, String> res = new HashMap<String, String>();
+        Enumeration<?> temp = request.getParameterNames();
+        if (null != temp) {
+            while (temp.hasMoreElements()) {
+                String en = (String) temp.nextElement();
+                String value = request.getParameter(en);
+                res.put(en, value);
+                //在报文上送时，如果字段的值为空，则不上送<下面的处理为在获取所有参数数据时，判断若值为空，则删除这个字段>
+                //System.out.println("ServletUtil类247行  temp数据的键=="+en+"     值==="+value);
+                if (null == res.get(en) || "".equals(res.get(en))) {
+                    res.remove(en);
+                }
+            }
+        }
+        return res;
     }
 }

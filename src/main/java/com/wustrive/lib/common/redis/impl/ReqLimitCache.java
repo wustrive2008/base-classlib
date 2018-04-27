@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 
 /**
- * Description: 请求限制缓存
+ * Description: 请求限制缓存 使用redis实现分布式限流
  *
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
