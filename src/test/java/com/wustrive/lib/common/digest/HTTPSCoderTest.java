@@ -1,6 +1,7 @@
 package com.wustrive.lib.common.digest;
 
 import org.junit.Test;
+import org.wustrive.java.common.digest.HTTPSCoder;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.DataInputStream;

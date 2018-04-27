@@ -4,6 +4,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Before;
 import org.junit.Test;
+import org.wustrive.java.common.digest.DSACoder;
 
 import java.util.Map;
 

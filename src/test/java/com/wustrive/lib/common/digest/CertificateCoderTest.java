@@ -2,6 +2,7 @@ package com.wustrive.lib.common.digest;
 
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
+import org.wustrive.java.common.digest.CertificateCoder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

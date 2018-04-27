@@ -3,6 +3,7 @@ package com.wustrive.lib.common.digest;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Before;
 import org.junit.Test;
+import org.wustrive.java.common.digest.DHCoder;
 
 import java.util.Map;
 
