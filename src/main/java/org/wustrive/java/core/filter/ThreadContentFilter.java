@@ -1,8 +1,8 @@
 package org.wustrive.java.core.filter;
 
 import com.google.common.collect.ImmutableSet;
+import org.wustrive.java.common.util.WebUtil;
 import org.wustrive.java.core.response.Parameter;
-import org.wustrive.java.util.WebUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
