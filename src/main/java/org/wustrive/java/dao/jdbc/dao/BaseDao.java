@@ -1,8 +1,8 @@
 package org.wustrive.java.dao.jdbc.dao;
 
+import org.wustrive.java.common.util.ConvertUtil;
 import org.wustrive.java.dao.jdbc.SqlParameter;
 import org.wustrive.java.dao.jdbc.bean.BaseBean;
-import org.wustrive.java.util.ConvertUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

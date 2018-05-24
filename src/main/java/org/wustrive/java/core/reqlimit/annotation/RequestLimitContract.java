@@ -1,10 +1,10 @@
 package org.wustrive.java.core.reqlimit.annotation;
 
 import org.wustrive.java.common.redis.impl.ReqLimitCache;
+import org.wustrive.java.common.util.WebUtil;
 import org.wustrive.java.core.filter.ThreadContentFilter;
 import org.wustrive.java.core.reqlimit.exception.RequestLimitException;
 import org.wustrive.java.core.request.ViewResult;
-import org.wustrive.java.util.WebUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

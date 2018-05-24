@@ -1,6 +1,5 @@
 package org.wustrive.java.dao.jdbc.dao;
 
-import org.wustrive.java.util.FileUtil;
 import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -13,7 +12,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 
 	private static ApplicationContext applicationContext = null;
 
-	protected static final Log log = LogFactory.get(FileUtil.class);
+	protected static final Log log = LogFactory.get(SpringContextHolder.class);
 
 	/**
 	 * 取得存储在静态变量中的ApplicationContext.
