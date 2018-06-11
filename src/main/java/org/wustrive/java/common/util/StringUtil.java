@@ -209,4 +209,29 @@ public class StringUtil extends StringUtils {
         return true;
     }
 
+    /**
+     * 截取指定长度字符串，一个汉字占两个字节，字符和数字占用一个
+     *
+     * @Title subStr
+     * @param value
+     * @param length
+     * @param flag
+     * @return
+     * @author zhaoqt
+     * @date Jul 27, 2015 9:41:00 AM
+     * @return String
+     */
+    public static String subStr(String value,int length,boolean flag){
+        if (org.apache.commons.lang.StringUtils.isBlank(value) || value.getBytes().length <= length)
+            return value;
+        for (int i = 0; i <= value.length(); i++) {
+            if (value.substring(0, i).getBytes().length > length) {
+                if (i - 1 >= 0) {
+                    return value.substring(0, i - 1)+(flag ? "...":"");
+                }
+            }
+        }
+        return value;
+    }
+
 }
