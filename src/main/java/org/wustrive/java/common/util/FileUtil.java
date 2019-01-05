@@ -1,123 +1,305 @@
 package org.wustrive.java.common.util;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Files;
-import com.google.common.io.LineProcessor;
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
+
+
+import org.apache.commons.lang.StringUtils;
+import org.wustrive.java.common.util.StringUtil;
+
 
 /**
- * Description: 文件工具类
+ * Description: 文件操作工具类
  *
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
- * @date: 2018/4/26 15:30
+ * @date: 2019/1/5 15:52
  * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class FileUtil {
-    protected static final Log log = LogFactory.get(FileUtil.class);
 
-    private String fileName;
-
-    private Charset charset;
-
-    public static final String defalut_mode = "append";
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public Charset getCharset() {
-        return charset;
-    }
-
-    public void setCharset(Charset charset) {
-        this.charset = charset;
-    }
-
-    public FileUtil(String fileName, Charset charset) {
-        this.fileName = fileName;
-        this.charset = charset;
+    /**
+     * 删除指定文件
+     *
+     * @param file
+     * @return void
+     * @Title deleteFile
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:08:02 AM
+     */
+    public static void deleteFile(File file) {
+        file.delete();
     }
 
     /**
-     * 写文件
+     * 删除指定文件 根据path
      *
-     * @param contents
-     * @param mode     文件写入模式
+     * @param path
      */
-    public void fileWrite(final String contents, final String mode) {
-        final File newFile = new File(this.fileName);
-        try {
-            if ("write".equals(mode)) {
-                Files.write((CharSequence) new String(contents + "\n"), newFile, this.charset);
+    public static void deleteFile(String path) {
+        File file = new File(path);
+        file.delete();
+    }
+
+    /**
+     * 获取文件扩展名
+     *
+     * @param path
+     * @return String
+     * @Title getFileExtendName
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:07:52 AM
+     */
+    public static String getFileExtendName(String path) {
+        return StringUtils.right(path, path.length() - path.lastIndexOf(".") - 1);
+    }
+
+
+    /**
+     * 获取文件前缀名称，不包含扩展名
+     *
+     * @param path
+     * @return
+     */
+    public static String getFilePrefixName(String path) {
+        return StringUtils.left(path, path.lastIndexOf("."));
+    }
+
+    /**
+     * 重命名文件
+     *
+     * @param oldName
+     * @param newName
+     * @return String
+     * @Title rename
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:08:27 AM
+     */
+    public static String rename(String oldName, String newName) {
+        String extendName = getFileExtendName(oldName);
+        if (StringUtils.isNotBlank(extendName)) {
+            return newName + "." + extendName;
+        }
+        return newName;
+    }
+
+    /**
+     * 带有路径的文件重命名
+     *
+     * @param filePath 文件路径
+     * @param newName  新文件名称，不需要扩展名
+     * @return String
+     * @Title renameWithPath
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:08:44 AM
+     */
+    public static String renameWithPath(String filePath, String newName) {
+        String extendName = getFileExtendName(filePath);
+        if (StringUtils.isNotBlank(extendName)) {
+            return getFileDirectory(filePath) + File.separator + newName + "." + extendName;
+        }
+        return getFileDirectory(filePath) + File.separator + newName;
+    }
+
+    public static String getFileDirectory(String path) {
+        return new File(path).getParent();
+    }
+
+    /**
+     * 删除目录并删除该目录下所以文件
+     *
+     * @param dir
+     * @return boolean
+     * @Title deleteDirectory
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:09:33 AM
+     */
+    public static boolean deleteDirectory(File dir) {
+        if ((dir == null) || !dir.isDirectory()) {
+            throw new RuntimeException("要删除的目录不存在，或者不是目录");
+        }
+        File[] files = dir.listFiles();
+        int sz = files.length;
+
+        for (int i = 0; i < sz; i++) {
+            if (files[i].isDirectory()) {
+                if (!deleteDirectory(files[i])) {
+                    return false;
+                }
             } else {
-                Files.append((CharSequence) new String(contents + "\n"), newFile, this.charset);
+                if (!files[i].delete()) {
+                    return false;
+                }
             }
-        } catch (IOException e) {
-            log.error("文件内容写入异常", e);
         }
+        if (!dir.delete()) {
+            return false;
+        }
+        return true;
     }
 
     /**
-     * 读取小文件 一次性读取
+     * 文件 copy
      *
-     * @return
+     * @param src
+     * @param target
+     * @return void
      * @throws IOException
+     * @Title copyFile
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:10:17 AM
      */
-    public List<String> readSmallFile() throws IOException {
-        File testFile = new File(this.fileName);
-        List<String> lines = Files.readLines(testFile, this.charset);
-        return lines;
+    public static void copyFile(String src, String target) throws IOException {
+        FileInputStream in = new FileInputStream(src);
+        File file = new File(target);
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+        }
+        FileOutputStream out = new FileOutputStream(file);
+        int c;
+        byte buffer[] = new byte[1024];
+        while ((c = in.read(buffer)) != -1) {
+            for (int i = 0; i < c; i++)
+                out.write(buffer[i]);
+        }
+        in.close();
+        out.close();
     }
 
     /**
-     * 大文件的读取
+     * 功能描述：读取文件内容
      *
-     * @return
-     * @throws IOException
+     * @param file
+     * @param encoding html文件使用gbk编码，此处使用utf-8编码，不会出现乱码
+     * @return String
+     * @Title file2String
+     * @author zhaoqt
+     * @date Jul 27, 2015 11:11:19 AM
      */
-    public List<String> readLargeFile() throws IOException {
-        CounterLine counter = new CounterLine();
-        Files.readLines(new File(this.fileName), this.charset, counter);
-        return counter.getResult();
+    public static String file2String(File file, String encoding) {
+        InputStreamReader reader = null;
+        StringWriter writer = new StringWriter();
+        try {
+            if (encoding == null || "".equals(encoding.trim())) {
+                reader = new InputStreamReader(new FileInputStream(file), encoding);
+            } else {
+                reader = new InputStreamReader(new FileInputStream(file));
+            }
+            // 将输入流写入输出流
+            char[] buffer = new char[1024];
+            int n = 0;
+            while (-1 != (n = reader.read(buffer))) {
+                writer.write(buffer, 0, n);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (reader != null)
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+        return writer.toString();
     }
 
-    static class CounterLine implements LineProcessor<List<String>> {
-        private List<String> lines = new ArrayList<String>();
+    /**
+     * touch 文件
+     *
+     * @param rootUrl
+     * @param fileName
+     * @param dirs
+     * @return
+     */
+    public static File touchFile(String rootUrl, String fileName,
+                                 String... dirs) {
+        if (StringUtil.isNotBlank(dirs)) {
+            File rootFolder = new File(rootUrl);
+            return new File(mkdir(rootFolder, 0, dirs), fileName);
+        }
+        return null;
+    }
 
-        public boolean processLine(String line) throws IOException {
-            lines.add(line);
+    /**
+     * 迭代创建 文件路径 并返回 最终路径 file
+     *
+     * @param folder
+     * @param index
+     * @param dirs
+     * @return
+     */
+    public static File mkdir(File folder, int index, String... dirs) {
+        index = index < 0 ? 0 : index;
+        if (index < dirs.length) {
+            File secondFolder = new File(folder, dirs[index]);
+            if (!secondFolder.exists()) {
+                secondFolder.mkdir();
+            }
+            index++;
+            return mkdir(secondFolder, index, dirs);
+        }
+        return folder;
+    }
+
+    /**
+     * 创建目录
+     *
+     * @param descDirName 目录名,包含路径
+     * @return 如果创建成功，则返回true，否则返回false
+     */
+    public static boolean createDirectory(String descDirName) {
+        String descDirNames = descDirName;
+        if (!descDirNames.endsWith(File.separator)) {
+            descDirNames = descDirNames + File.separator;
+        }
+        File descDir = new File(descDirNames);
+        if (descDir.exists()) {
+            return false;
+        }
+        // 创建目录
+        if (descDir.mkdirs()) {
             return true;
+        } else {
+            return false;
         }
 
-        public List<String> getResult() {
-            return lines;
-        }
     }
 
-    public static void main(String[] args) throws IOException {
-        FileUtil fileUtil = new FileUtil("D:/test.md", Charsets.UTF_8);
-        fileUtil.fileWrite("hello md", "append");
+    /**
+     * 读取 tst file
+     *
+     * @param txtFile
+     * @param encoding
+     */
+    public static String readTxtFile(File txtFile, String encoding) {
+        StringBuffer buffer = new StringBuffer();
+        try {
+            if (txtFile.isFile() && txtFile.exists()) { //判断文件是否存在
+                InputStreamReader read = new InputStreamReader(
+                        new FileInputStream(txtFile), encoding);//考虑到编码格式
+                BufferedReader bufferedReader = new BufferedReader(read);
+                String lineTxt = null;
 
-        List<String> lines = fileUtil.readSmallFile();
-        for (String string : lines) {
-            log.error("{}", string);
-        }
+                while ((lineTxt = bufferedReader.readLine()) != null) {
+                    buffer.append(lineTxt);
+                }
+                read.close();
 
-        lines = fileUtil.readLargeFile();
-        for (String string : lines) {
-            log.error("{}", string);
+                return buffer.toString();
+            } else {
+                System.out.println("找不到指定的文件");
+            }
+        } catch (Exception e) {
+            System.out.println("读取文件内容出错");
+            e.printStackTrace();
         }
+        return buffer.toString();
     }
 }

@@ -26,7 +26,9 @@ public class StringUtil extends StringUtils {
     /**
      * 字符串编码转换
      *
-     * @param param
+     * @param sourceCharsetName
+     * @param targetCharsetName
+     * @param str
      * @return
      */
     public static String convertEncode(String sourceCharsetName, String targetCharsetName,
@@ -232,6 +234,39 @@ public class StringUtil extends StringUtils {
             }
         }
         return value;
+    }
+
+    /**
+     * 功能描述：都不为空，则返回true
+     *
+     * @Title isNotBlank
+     * @param list
+     * @return
+     * @author zhaoqt
+     * @date Jul 27, 2015 9:39:55 AM
+     * @return boolean
+     */
+    public static boolean isNotBlank(String... list){
+        return !isBlank(list);
+    }
+
+    /**
+     *  功能描述：接受一个List<String>，如果有任何一个为空，则返回true，否则返回false
+     *
+     * @Title isBlank
+     * @param list
+     * @return
+     * @author zhaoqt
+     * @date Jul 27, 2015 9:38:35 AM
+     * @return boolean
+     */
+    public static boolean isBlank(String... list){
+        for (String string : list) {
+            if(org.apache.commons.lang.StringUtils.isBlank(string)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
