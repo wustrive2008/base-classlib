@@ -246,11 +246,11 @@
     <distributionManagement>
         <repository>
             <id>vcxx_release</id>
-            <url>http://192.168.1.8:8081/nexus/content/repositories/releases</url>
+            <url>http://47.96.97.145:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>vcxx_snapshots</id>
-            <url>http://192.168.1.8:8081/nexus/content/repositories/snapshots</url>
+            <url>http://47.96.97.145:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
