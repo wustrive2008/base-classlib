@@ -1,6 +1,7 @@
 package org.wustrive.java.core.request;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.ValueFilter;
 import com.google.common.collect.Lists;
 import org.wustrive.java.core.filter.ThreadContentFilter;
@@ -80,7 +81,8 @@ public class ViewResult {
         }
 
         result.put("content", content);
-        final String out = JSON.toJSONString(result, filter);
+        JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+        final String out = JSON.toJSONString(result, filter, SerializerFeature.WriteDateUseDateFormat);
 
         HttpServletRequest request = ThreadContentFilter.request();
         String jsoncallback = (String) request.getParameter("jsoncallback");
