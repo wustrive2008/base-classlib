@@ -11,7 +11,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <jackson.version>2.8.5</jackson.version>
+        <jackson.version>2.9.8</jackson.version>
         <junit.version>4.11</junit.version>
         <guava.version>21.0</guava.version>
         <httpclient.version>4.5.2</httpclient.version>
@@ -21,7 +21,7 @@
         <hutool.version>2.16.2</hutool.version>
         <common.lang3.version>3.4</common.lang3.version>
         <common.io.version>2.5</common.io.version>
-        <fastjson.version>1.2.13</fastjson.version>
+        <fastjson.version>1.2.31</fastjson.version>
         <servlet.version>3.1.0</servlet.version>
         <jwt.version>5.1</jwt.version>
         <spring.version>4.3.7.RELEASE</spring.version>
