@@ -7,8 +7,6 @@ import java.util.Date;
  * 支付工具类
  * @Title: PayUtil.java
  * @ClassName: com.cedu.util.PayUtil
- *
- * Copyright  2015-2016 维创盈通 - Powered By 研发中心 V1.0.0
  * @author wustrive
  * @date 2017年1月13日 上午10:45:48
  */

@@ -8,7 +8,6 @@ import java.lang.annotation.*;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2017/11/4 12:07
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 @Target({ElementType.PARAMETER, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

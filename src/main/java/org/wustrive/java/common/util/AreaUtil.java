@@ -10,7 +10,6 @@ import org.apache.commons.lang.StringUtils;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2017/11/7 13:56
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class AreaUtil {
 

@@ -16,7 +16,6 @@ package org.wustrive.java.common.util;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/5/24 9:25
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class SnowflakeIdWorker {
     // ==============================Fields===========================================

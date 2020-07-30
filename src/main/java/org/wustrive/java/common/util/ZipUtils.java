@@ -15,7 +15,6 @@ import java.util.zip.ZipOutputStream;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2017/11/16 17:37
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class ZipUtils {
 

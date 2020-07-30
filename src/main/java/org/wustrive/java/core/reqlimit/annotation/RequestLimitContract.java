@@ -24,7 +24,6 @@ import java.io.OutputStream;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2017/11/4 12:08
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 @Aspect
 @Component

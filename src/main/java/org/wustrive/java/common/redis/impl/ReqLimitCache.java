@@ -10,7 +10,6 @@ import redis.clients.jedis.Jedis;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2017/11/4 12:09
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 @Component
 public class ReqLimitCache extends RedisCacheSupport {

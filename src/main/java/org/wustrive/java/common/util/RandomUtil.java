@@ -10,7 +10,6 @@ import java.util.Random;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/3/26 17:36
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class RandomUtil {
 

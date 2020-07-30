@@ -4,8 +4,6 @@ package org.wustrive.java.common.regular;
  * 常用的正则表达式
  * @Title: RegularConstants.java
  * @ClassName: org.wustrive.java.common.regular.RegularConstants
- *
- * Copyright  2015-2017 维创盈通 - Powered By 研发中心 V1.0.0
  * @author wustrive
  * @date 2017年3月11日 上午11:43:38
  */

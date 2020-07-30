@@ -7,7 +7,6 @@ package org.wustrive.java.common.oss;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/3/20 16:50
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public enum ImageFormat {
     JPEG, TIFF, PNG, BMP, GIF, ICO, RAW, PSD, UNKNOWN;

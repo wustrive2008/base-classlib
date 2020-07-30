@@ -14,7 +14,6 @@ import java.util.Properties;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/2/23 11:54
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class PropertiesConfig {
     private static final Logger log = LoggerFactory.getLogger(PropertiesConfig.class);

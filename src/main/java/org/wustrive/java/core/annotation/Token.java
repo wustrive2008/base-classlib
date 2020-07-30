@@ -12,7 +12,6 @@ import java.lang.annotation.Target;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/5/18 10:49
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

@@ -1,13 +1,5 @@
 package org.wustrive.java.common.secret;
 
-// Md5.java
-// $Id: Md5.java,v 1.4 1999/12/06 13:13:58 ylafon Exp $
-// (c) COPYRIGHT MIT and INRIA, 1996.
-// Please first read the full copyright statement in file COPYRIGHT.html
-//
-// 
-//		Add model hmac_Md5 ( String text , String key ) ;
-//package md5java ;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

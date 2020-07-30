@@ -6,8 +6,6 @@ import java.math.BigDecimal;
  * @Title: Arith.java
  * @ClassName: org.vcxx.common.utils.Arith
  * @Description: 浮点算法 
- *
- * Copyright  2015-2016 维创盈通 - Powered By 研发中心 V1.0.0
  * @author zhaoqt
  * @date Mar 16, 2016 1:22:05 AM
  */

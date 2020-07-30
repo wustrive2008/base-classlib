@@ -18,7 +18,6 @@ import java.util.Random;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/4/26 15:32
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class VerifyCodeUtils {
 

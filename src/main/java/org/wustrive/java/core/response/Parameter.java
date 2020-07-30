@@ -9,13 +9,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * @Title: Parameter.java
- * @ClassName: com.vc.base.core.json.Parameter
- * @Description: 页面请求公告参数
- *
- * Company: vc
- * @author Zhaoqt
- * @date Jul 15, 2015 4:20:14 PM
+ * Description: 
+ * 
+ * @author: wubaoguo
+ * @email: wustrive2008@gmail.com
+ * @date: 2017-07-30 19:15
  */
 public class Parameter {
 

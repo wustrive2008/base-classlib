@@ -19,7 +19,6 @@ import org.wustrive.java.common.util.StringUtil;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2019/1/5 15:52
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class FileUtil {
 

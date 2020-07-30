@@ -16,7 +16,6 @@ import java.util.List;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/3/20 16:39
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class OssUtil {
 	public static String ACCESS_KEY;

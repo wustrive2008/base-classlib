@@ -10,8 +10,6 @@ import java.util.regex.Pattern;
  * 正则表达式工具类
  * @Title: RegularUtil.java
  * @ClassName: org.wustrive.java.common.regular.RegularUtil
- *
- * Copyright  2015-2017 维创盈通 - Powered By 研发中心 V1.0.0
  * @author wustrive
  * @date 2017年3月11日 上午11:48:39
  */

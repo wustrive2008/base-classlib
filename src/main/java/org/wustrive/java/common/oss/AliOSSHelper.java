@@ -17,7 +17,6 @@ import java.net.URL;
  * @author: wubaoguo
  * @email: wustrive2008@gmail.com
  * @date: 2018/3/20 16:38
- * @Copyright: 2017-2018 dgztc Inc. All rights reserved.
  */
 public class AliOSSHelper {
     private static Logger logger = LoggerFactory.getLogger(AliOSSHelper.class);

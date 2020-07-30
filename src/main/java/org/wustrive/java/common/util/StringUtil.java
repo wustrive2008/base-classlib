@@ -16,8 +16,6 @@ import java.util.UUID;
  * @Title: MyStringUtil.java
  * @ClassName: org.wustrive.java.common.string.MyStringUtil
  * @Description: 补充的字符串工具类
- * <p>
- * Copyright 2015-2017 维创盈通 - Powered By 研发中心 V1.0.0
  * @date 2017年3月11日 下午12:08:06
  */
 public class StringUtil extends StringUtils {

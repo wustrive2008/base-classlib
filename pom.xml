@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>base-classlib</name>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/wustrive2008/base-classlib</url>
 
     <properties>
         <jackson.version>2.9.8</jackson.version>
