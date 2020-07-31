@@ -2,12 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wustrive.java</groupId>
+    <groupId>com.github.wustrive2008</groupId>
     <artifactId>base-classlib</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>base-classlib</name>
+    <description>Java tools jar</description>
     <url>https://github.com/wustrive2008/base-classlib</url>
 
     <properties>
@@ -183,74 +184,152 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <finalName>base-classlib</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.1</version>
-                <configuration>
-                    <compilerVersion>1.8</compilerVersion>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <compilerArguments>
-                        <extdirs>src\main\webapp\WEB-INF\lib</extdirs>
-                    </compilerArguments>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-compiler-javac</artifactId>
-                        <version>1.8.1</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <webappDirectory>${basedir}/src/main/webapp</webappDirectory>
-                </configuration>
-            </plugin>
-            <!-- mvn deploy 上传source -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <!-- 许可证信息 -->
+    <licenses>
+        <!-- Apache许可证 -->
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
-    <distributionManagement>
-        <repository>
-            <id>vcxx_release</id>
-            <url>http://47.96.97.145:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>vcxx_snapshots</id>
-            <url>http://47.96.97.145:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <!-- SCM信息 -> git在github上托管 -->
+    <scm>
+        <connection>scm:git:git@github.com:wustrive2008/base-classlib.git</connection>
+        <developerConnection>scm:git:ssh://github.com:wustrive2008/base-classlib.git</developerConnection>
+        <url>https://github.com/wustrive2008/base-classlib/tree/master</url>
+    </scm>
+
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <name>wustrive</name>
+            <email>wustrive2008@gmail.com</email>
+            <url>https://github.com/wustrive2008</url>
+        </developer>
+    </developers>
+
+    <profiles>
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+                <build>
+                    <finalName>base-classlib</finalName>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-compiler-plugin</artifactId>
+                            <version>2.3.1</version>
+                            <configuration>
+                                <compilerVersion>1.8</compilerVersion>
+                                <source>1.8</source>
+                                <target>1.8</target>
+                                <compilerArguments>
+                                    <extdirs>src\main\webapp\WEB-INF\lib</extdirs>
+                                </compilerArguments>
+                            </configuration>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.codehaus.plexus</groupId>
+                                    <artifactId>plexus-compiler-javac</artifactId>
+                                    <version>1.8.1</version>
+                                </dependency>
+                            </dependencies>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-resources-plugin</artifactId>
+                            <version>2.7</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>2.17</version>
+                            <configuration>
+                                <skipTests>true</skipTests>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-war-plugin</artifactId>
+                            <version>2.6</version>
+                            <configuration>
+                                <webappDirectory>${basedir}/src/main/webapp</webappDirectory>
+                            </configuration>
+                        </plugin>
+                        <!-- 要生成Javadoc和Source jar文件，您必须配置javadoc和源Maven插件 -->
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-source-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>attach-sources</id>
+                                    <goals>
+                                        <goal>jar-no-fork</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>2.9.1</version>
+                            <configuration>
+                                <!-- jdk1.8要加上，1.7要去掉，否则会报错 -->
+                                <additionalJOptions>
+                                    <additionalJOption>-Xdoclint:none</additionalJOption>
+                                </additionalJOptions>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>attach-javadocs</id>
+                                    <goals>
+                                        <goal>jar</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+
+                        <!--  必须配置GPG插件用于使用以下配置对组件进行签名 -->
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-gpg-plugin</artifactId>
+                            <version>1.5</version>
+                            <executions>
+                                <execution>
+                                    <id>sign-artifacts</id>
+                                    <phase>verify</phase>
+                                    <goals>
+                                        <goal>sign</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </build>
+
+                <distributionManagement>
+                    <!--<repository>
+                        <id>vcxx_release</id>
+                        <url>http://47.96.97.145:8081/repository/maven-releases/</url>
+                    </repository>
+                    <snapshotRepository>
+                        <id>vcxx_snapshots</id>
+                        <url>http://47.96.97.145:8081/repository/maven-snapshots/</url>
+                    </snapshotRepository>-->
+
+                    <snapshotRepository>
+                        <id>ossrh</id>
+                        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    </snapshotRepository>
+                    <repository>
+                        <id>ossrh</id>
+                        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    </repository>
+                </distributionManagement>
+        </profile>
+    </profiles>
 </project>
