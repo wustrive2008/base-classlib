@@ -15,7 +15,7 @@
         <jackson.version>2.12.6.1</jackson.version>
         <junit.version>4.11</junit.version>
         <guava.version>21.0</guava.version>
-        <httpclient.version>4.5.2</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.5</httpcore.version>
         <httpmime.version>4.5.2</httpmime.version>
         <google.guava>21.0</google.guava>
