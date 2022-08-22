@@ -14,7 +14,7 @@ public class AESCoderTest {
      */
     @Test
     public final void test() throws Exception {
-         String inputStr = "AES";
+         String inputStr = "W00000000001";
           byte[] inputData = inputStr.getBytes();
          System. err.println("原文:\t" + inputStr);
 

@@ -53,7 +53,7 @@ public class JWTUtil {
         try {
             return macVerifier.verify(jwsObject.getHeader(), jwsObject.getSigningInput(), jwsObject.getSignature());
         } catch (JOSEException e) {
-            throw new BusinessException("accessToken format error.");
+            throw new BusinessException("登录已过期，请重新登录");
         }
     }
 
@@ -68,7 +68,7 @@ public class JWTUtil {
         try {
             return JWSObject.parse(jwtTemplate);
         } catch (ParseException e) {
-            throw new BusinessException("accessToken format error.");
+            throw new BusinessException("登录已过期，请重新登录");
         }
     }
 
