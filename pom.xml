@@ -24,7 +24,7 @@
         <common.io.version>2.5</common.io.version>
         <fastjson.version>1.2.83</fastjson.version>
         <servlet.version>3.1.0</servlet.version>
-        <jwt.version>5.1</jwt.version>
+        <jwt.version>7.9</jwt.version>
         <spring.version>4.3.7.RELEASE</spring.version>
         <jedis.version>2.9.0</jedis.version>
         <aspectj.aspectjweaver.version>1.8.0</aspectj.aspectjweaver.version>
