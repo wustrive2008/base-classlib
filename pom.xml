@@ -21,7 +21,7 @@
         <google.guava>21.0</google.guava>
         <hutool.version>2.16.2</hutool.version>
         <common.lang3.version>3.4</common.lang3.version>
-        <common.io.version>2.5</common.io.version>
+        <common.io.version>2.7</common.io.version>
         <fastjson.version>1.2.83</fastjson.version>
         <servlet.version>3.1.0</servlet.version>
         <jwt.version>5.1</jwt.version>
