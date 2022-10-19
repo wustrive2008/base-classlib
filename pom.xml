@@ -12,7 +12,7 @@
     <url>https://github.com/wustrive2008/base-classlib</url>
 
     <properties>
-        <jackson.version>2.12.6.1</jackson.version>
+        <jackson.version>2.13.4.1</jackson.version>
         <junit.version>4.11</junit.version>
         <guava.version>21.0</guava.version>
         <httpclient.version>4.5.13</httpclient.version>
