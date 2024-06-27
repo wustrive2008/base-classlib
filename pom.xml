@@ -4,7 +4,7 @@
 
     <groupId>com.github.wustrive2008</groupId>
     <artifactId>base-classlib</artifactId>
-    <version>1.2</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>base-classlib</name>
@@ -13,12 +13,11 @@
 
     <properties>
         <jackson.version>2.17.1</jackson.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <guava.version>33.2.1-jre</guava.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.5</httpcore.version>
         <httpmime.version>4.5.2</httpmime.version>
-        <google.guava>21.0</google.guava>
         <hutool.version>5.8.28</hutool.version>
         <common.lang3.version>3.14.0</common.lang3.version>
         <common.io.version>2.16.1</common.io.version>
@@ -64,7 +63,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>${google.guava}</version>
+            <version>${guava.version}</version>
         </dependency>
 
         <!-- http 工具 -->
