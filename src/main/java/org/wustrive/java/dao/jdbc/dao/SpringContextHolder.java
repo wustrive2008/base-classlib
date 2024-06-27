@@ -1,7 +1,8 @@
 package org.wustrive.java.dao.jdbc.dao;
 
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
+
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

@@ -1,6 +1,7 @@
 package org.wustrive.java.common.secret;
 
 
+import cn.hutool.json.JSONObject;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
@@ -8,7 +9,6 @@ import org.wustrive.java.common.properties.PropertiesConfig;
 import org.wustrive.java.common.util.DateUtil;
 import org.wustrive.java.common.util.StringUtil;
 import org.wustrive.java.core.exception.BusinessException;
-import net.minidev.json.JSONObject;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -140,7 +140,7 @@ public class JWTUtil {
      */
     public synchronized static String reExp(String jwtTemplate) throws BusinessException, KeyLengthException {
         if (StringUtil.isNotBlank(jwtTemplate)) {
-            return encrypt(decrypt(jwtTemplate).getPayload().toJSONObject());
+            return encrypt((JSONObject) decrypt(jwtTemplate).getPayload().toJSONObject());
         }
         return null;
     }
@@ -154,7 +154,7 @@ public class JWTUtil {
      */
     public static Object getValue(JWSObject jwsObject, String key) {
         Payload payload = jwsObject.getPayload();
-        JSONObject jsonObjcet = payload.toJSONObject();
+        JSONObject jsonObjcet = (JSONObject) payload.toJSONObject();
         if (jsonObjcet.containsKey(key)) {
             return jsonObjcet.get(key);
         }

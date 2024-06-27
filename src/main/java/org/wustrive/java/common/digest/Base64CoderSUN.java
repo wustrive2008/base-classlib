@@ -1,7 +1,8 @@
 package org.wustrive.java.common.digest;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 
 public  class Base64CoderSUN {
 	 /**
@@ -17,9 +18,8 @@ public  class Base64CoderSUN {
      * @throws Exception
      */
      public static String encode(String data) throws Exception {
-          BASE64Encoder encoder = new BASE64Encoder();
           byte[] b = data.getBytes(ENCODING);
-          return encoder.encodeBuffer(b);
+          return Base64Encoder.encode(b);
      }
 
      /**
@@ -30,8 +30,7 @@ public  class Base64CoderSUN {
      * @throws Exception
      */
      public static String decode(String data) throws Exception {
-          BASE64Decoder decoder = new BASE64Decoder();
-          byte[] b = decoder.decodeBuffer(data);
+          byte[] b = Base64Decoder.decode(data);
           return new String(b, ENCODING);
      }
 }

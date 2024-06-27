@@ -1,8 +1,9 @@
 package org.wustrive.java.common.util;
 
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.github.kevinsawicki.http.HttpRequest;
-import net.sf.json.JSONObject;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Description:地理位置相关工具
@@ -48,9 +49,9 @@ public class AreaUtil {
         String responseStr = HttpRequest.get(url)
                 .accept("application/json") //Sets request header
                 .body();
-        String city = JSONObject.fromObject(responseStr).getJSONObject("result")
-                .getJSONObject("addressComponent").getString("city");
-        return city;
+
+        return JSONUtil.parseObj(responseStr).getJSONObject("result")
+                .getJSONObject("addressComponent").getStr("city");
     }
 
     /**
@@ -65,8 +66,7 @@ public class AreaUtil {
         String responseStr = HttpRequest.get(url)
                 .accept("application/json") //Sets request header
                 .body();
-        String district = JSONObject.fromObject(responseStr).getJSONObject("result")
-                .getJSONObject("addressComponent").getString("district");
-        return district;
+        return JSONUtil.parseObj(responseStr).getJSONObject("result")
+                .getJSONObject("addressComponent").getStr("district");
     }
 }

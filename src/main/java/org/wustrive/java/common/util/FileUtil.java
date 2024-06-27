@@ -9,8 +9,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 
 
-import org.apache.commons.lang.StringUtils;
-import org.wustrive.java.common.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**

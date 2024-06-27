@@ -1,8 +1,8 @@
 package org.wustrive.java.common.util;
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import com.google.common.collect.Lists;
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
 
 import java.text.DateFormat;
 import java.text.ParseException;

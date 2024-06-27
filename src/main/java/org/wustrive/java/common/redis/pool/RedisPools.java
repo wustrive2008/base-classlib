@@ -1,9 +1,9 @@
 package org.wustrive.java.common.redis.pool;
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import com.alibaba.fastjson.JSON;
 import org.wustrive.java.common.redis.conf.RedisConfig;
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
 import redis.clients.jedis.JedisPool;
 
 import java.io.BufferedReader;

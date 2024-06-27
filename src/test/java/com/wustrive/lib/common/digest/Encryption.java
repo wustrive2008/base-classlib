@@ -1,6 +1,7 @@
 package com.wustrive.lib.common.digest;
 
-import sun.misc.BASE64Decoder;
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -36,7 +37,7 @@ public class Encryption {
             cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
             byte[] encrypted = cipher.doFinal(plaintext);
  
-            return new sun.misc.BASE64Encoder().encode(encrypted);
+            return Base64Encoder.encode(encrypted);
  
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +52,7 @@ public class Encryption {
             String key = "1234567812345678";
             String iv = "1234567812345678";
              
-            byte[] encrypted1 = new BASE64Decoder().decodeBuffer(data);
+            byte[] encrypted1 = Base64Decoder.decode(data);
              
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             SecretKeySpec keyspec = new SecretKeySpec(key.getBytes(), "AES");

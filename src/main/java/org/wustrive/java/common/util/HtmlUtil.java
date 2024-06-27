@@ -1,7 +1,8 @@
 package org.wustrive.java.common.util;
 
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
+
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,8 @@
 package org.wustrive.java.common.util;
 
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
+
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -202,7 +203,7 @@ public class StringUtil extends StringUtils {
             return true;
         }
         for (final String cs : css){
-            if (org.apache.commons.lang.StringUtils.isNotBlank(cs)) {
+            if (StringUtils.isNotBlank(cs)) {
                 return false;
             }
         }
@@ -222,7 +223,7 @@ public class StringUtil extends StringUtils {
      * @return String
      */
     public static String subStr(String value,int length,boolean flag){
-        if (org.apache.commons.lang.StringUtils.isBlank(value) || value.getBytes().length <= length)
+        if (StringUtils.isBlank(value) || value.getBytes().length <= length)
             return value;
         for (int i = 0; i <= value.length(); i++) {
             if (value.substring(0, i).getBytes().length > length) {
@@ -260,7 +261,7 @@ public class StringUtil extends StringUtils {
      */
     public static boolean isBlank(String... list){
         for (String string : list) {
-            if(org.apache.commons.lang.StringUtils.isBlank(string)){
+            if(StringUtils.isBlank(string)){
                 return true;
             }
         }

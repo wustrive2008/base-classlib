@@ -1,11 +1,11 @@
 package org.wustrive.java.common.redis.support;
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import org.wustrive.java.common.redis.HessianSerializer;
 import org.wustrive.java.common.redis.client.JedisClient;
 import org.wustrive.java.common.redis.client.JedisClientFactory;
 import org.wustrive.java.common.redis.pool.RedisPools;
-import com.xiaoleilu.hutool.log.Log;
-import com.xiaoleilu.hutool.log.LogFactory;
 import org.apache.commons.lang3.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;

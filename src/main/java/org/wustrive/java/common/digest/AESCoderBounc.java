@@ -1,6 +1,8 @@
 package org.wustrive.java.common.digest;
 
-import sun.misc.BASE64Decoder;
+
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -76,7 +78,7 @@ public class AESCoderBounc {
      */
     public static String decrypt_CBC(String data, String key,String iv) throws Exception {
 	  try{
-          byte[] encrypted1 = new BASE64Decoder().decodeBuffer(data);
+          byte[] encrypted1 = Base64Decoder.decode(data);
           Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_CBC);
           SecretKeySpec keyspec = new SecretKeySpec(key.getBytes(), KEY_ALGORITHM);
           IvParameterSpec ivspec = new IvParameterSpec(iv.getBytes());
@@ -147,7 +149,7 @@ public class AESCoderBounc {
              cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
              byte[] encrypted = cipher.doFinal(plaintext);
   
-             return new sun.misc.BASE64Encoder().encode(encrypted);
+             return Base64Encoder.encode(encrypted);
   
          } catch (Exception e) {
              e.printStackTrace();

@@ -6,7 +6,7 @@
 #### maven地址
 ```xml
  <dependency>
-     <groupId>org.wustrive.java</groupId>
+     <groupId>com.github.wustrive2008</groupId>
       <artifactId>base-classlib</artifactId>
       <version>1.0-SNAPSHOT</version>
  </dependency>
